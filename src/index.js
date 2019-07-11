@@ -1,3 +1,4 @@
+import '../src/css/main.css';
 import { secretButton, secret } from './js/dom-loader';
 
 var showSecret = false;
