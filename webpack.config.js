@@ -1,28 +1,41 @@
 var path = require('path');
-var webpack = require('webpack');
+var MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+var extractPlugin = new MiniCssExtractPlugin({
+    filename: 'main.css' // output filename
+})
+
 module.exports = {
     entry: './src/index.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'bundle.js',
-        publicPath: '/dist'
+        filename: 'bundle.js', // bundle output filename
+        publicPath: '/dist' // relative path
     },
     // Do something with code with loaders
     module: {
         rules: [
             {
-                test: /\.css$/, // check if file extensions is .css
+                test: /\.(sa|sc|c)ss$/, // check if file extensions is .scss .css
+                // wrap plugin which contains the loaders that should be executed
                 use: [
-                    // loaders are reversed loaded
-                    'style-loader',
-                    'css-loader' // load css loader first
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                        options: {
+                            hmr: process.env.NODE_ENV === 'development'
+                        },
+                        // loaders are reversed loaded
+                        // last loader is the first executed
+                    },
+                    'css-loader',
+                    'sass-loader'
                 ]
             }
         ]
     },
     // plugins are executed on the bundle before it is copied to the dist folder
     plugins: [
-
+        extractPlugin, // put all together and copy it with config to output folder
     ],
     // since webpack 4 availible
     optimization: {

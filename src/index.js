@@ -1,4 +1,4 @@
-import '../src/css/main.css';
+import '../src/css/main.scss'; // here the scss file will be imported, so that webpack can access it
 import { secretButton, secret } from './js/dom-loader';
 
 var showSecret = false;
