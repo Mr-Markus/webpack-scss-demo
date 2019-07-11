@@ -9,7 +9,7 @@
     "build": "webpack --mode production"
   },
   "author": "Mr-Markus",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "css-loader": "^3.0.0",
     "mini-css-extract-plugin": "^0.7.0",
