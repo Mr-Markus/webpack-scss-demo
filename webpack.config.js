@@ -19,13 +19,14 @@ module.exports = {
                 test: /\.(sa|sc|c)ss$/, // check if file extensions is .scss .css
                 // wrap plugin which contains the loaders that should be executed
                 use: [
+                    // loaders are reversed loaded
+                    // last loader is the first executed
                     {
                         loader: MiniCssExtractPlugin.loader,
                         options: {
+                            // enable hot module reloading for scss
                             hmr: process.env.NODE_ENV === 'development'
                         },
-                        // loaders are reversed loaded
-                        // last loader is the first executed
                     },
                     'css-loader',
                     'sass-loader'
