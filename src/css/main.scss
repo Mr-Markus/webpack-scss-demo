@@ -9,11 +9,64 @@ h1 {
   font-size: 28px;
 }
 
-.secret {
-  border: 1px solid $border;
-  background: $secretBackground;
-  padding: 20px;
-  margin: 30px auto;
-  width: 50vw;
-  font-size: 18px;
+@mixin hover {
+  background-color: $boxHoverBackground;
+}
+
+.container {
+  height: 100%;
+  display: grid;
+  grid-template-rows: 70% auto;
+  grid-template-columns: 25% auto;
+
+  .sidebar {
+    background-color: $sideBarBrackground;
+    grid-column: 1;
+    grid-row: 1/3;
+    margin: 5px;
+  }
+
+  .box1 {
+    background-color: $boxBackground;
+    grid-column: 2;
+    grid-row: 1;
+    margin: 5px;
+
+    &:hover {
+      @include hover;
+    }
+  }
+
+  .box2 {
+    background-color: $boxBackground;
+    grid-column: 3;
+    grid-row: 1;
+    margin: 5px;
+
+    &:hover {
+      @include hover;
+    }
+  }
+
+  .box3 {
+    background-color: $boxBackground;
+    grid-column: 2;
+    grid-row: 2;
+    margin: 5px;
+
+    &:hover {
+      @include hover;
+    }
+  }
+
+  .box4 {
+    background-color: $boxBackground;
+    grid-column: 3;
+    grid-row: 2;
+    margin: 5px;
+
+    &:hover {
+      @include hover;
+    }
+  }
 }
